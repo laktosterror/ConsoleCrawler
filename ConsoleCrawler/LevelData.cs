@@ -3,6 +3,8 @@
 public class LevelData
 {
     public List<LevelElement> elements = [];
+
+    public Player player = null;
     
     public void Load(string filePath)
     {
@@ -18,16 +20,16 @@ public class LevelData
                     switch (character)
                     {
                         case '@':
-                            elements.Add(new Player(column, row));
+                            player = new Player(row, column);
                             break;
                         case 'r':
-                            elements.Add(new Rat(column, row));
+                            elements.Add(new Rat(row, column));
                             break;
                         case 's':
-                            elements.Add(new Snake(column, row));
+                            elements.Add(new Snake(row, column));
                             break;
                         case '#':
-                            elements.Add(new Wall(column, row));
+                            elements.Add(new Wall(row, column));
                             break;
                         default:
                             break;
@@ -45,5 +47,6 @@ public class LevelData
         {
             element.Draw();
         }
+        player.Draw();
     }
 }

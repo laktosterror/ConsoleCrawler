@@ -11,7 +11,7 @@ public abstract class LevelElement(int posY, int posX)
 
     public void Draw()
     {
-        Console.SetCursorPosition(PosY, PosX);
+        Console.SetCursorPosition(PosX, PosY);
         Console.ForegroundColor = ElementColor;
         Console.WriteLine(ElementType.ToString());
     }
