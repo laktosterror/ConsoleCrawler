@@ -4,15 +4,14 @@ class Game
 {
     static void Main(string[] args)
     {
-        BeginGameLoop();
+        Console.CursorVisible = false;
+        
+        LevelData levelData = new LevelData(@"C:\Users\TEST\RiderProjects\ConsoleCrawler\ConsoleCrawler\Levels\Level1.txt");
+        BeginGameLoop(levelData);
     }
 
-    static void BeginGameLoop()
+    static void BeginGameLoop(LevelData levelData)
     {
-        LevelData levelData = new LevelData();
-        levelData.Load(@"C:\Users\TEST\RiderProjects\ConsoleCrawler\ConsoleCrawler\Levels\Level1.txt");
-        Console.CursorVisible = false;
-
         while (true)
         {
             Console.Clear();
@@ -35,7 +34,6 @@ class Game
                 default:
                     break;
             }
-            
         }
     }
 }
