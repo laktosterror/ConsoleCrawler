@@ -20,20 +20,24 @@ class Game
             switch (key)
             {
                 case ConsoleKey.UpArrow:
-                    levelData.player.PosY--;
+                    levelData.player.Move(0, -1, levelData.elements);
                     break;
                 case ConsoleKey.DownArrow:
-                    levelData.player.PosY++;
+                    levelData.player.Move(0, 1, levelData.elements);
+
                     break;
                 case ConsoleKey.LeftArrow:
-                    levelData.player.PosX--;
+                    levelData.player.Move(-1, 0, levelData.elements);
+
                     break;
                 case ConsoleKey.RightArrow:
-                    levelData.player.PosX++;
+                    levelData.player.Move(1, 0, levelData.elements);
+
                     break;
                 default:
                     break;
             }
+            levelData.MoveEnemies();
         }
     }
 }
