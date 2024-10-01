@@ -53,4 +53,12 @@ public class LevelData
         }
         player.Draw();
     }
+
+    public void MoveEnemies()
+    {
+        foreach (var element in elements.OfType<Enemy>())
+        {
+            element.Move(player, elements);
+        }
+    }
 }
