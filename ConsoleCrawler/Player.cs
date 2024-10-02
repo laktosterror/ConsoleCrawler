@@ -4,7 +4,6 @@ public class Player(int posY, int posX) : AliveElement(posY, posX)
 {
     public override char ElementType { get; } = '@';
     public override ConsoleColor ElementColor { get; } = ConsoleColor.Yellow;
-
     public override void Move(Player player, List<LevelElement> elements)
     {
         throw new NotImplementedException();
