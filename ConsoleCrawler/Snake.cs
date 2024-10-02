@@ -2,6 +2,7 @@
 
 public class Snake(int posY, int posX) : Enemy(posY, posX)
 {
+    public override float HealthPoints { get; set; } = 100;
     public override char ElementType { get; } = 's';
     public override ConsoleColor ElementColor { get; } = ConsoleColor.Magenta;
     
@@ -18,7 +19,7 @@ public class Snake(int posY, int posX) : Enemy(posY, posX)
             else if (this.PosY > player.PosY) newY++;
             
             // Check for collision before moving
-            if (!CheckCollision(newX, newY, elements)) {
+            if (!IsColliding(newX, newY, elements)) {
                 this.PosX = newX;
                 this.PosY = newY;
             }

@@ -2,6 +2,7 @@
 
 public class Rat(int posY, int posX) : Enemy(posY, posX)
 {
+    public override float HealthPoints { get; set; } = 80;
     public override char ElementType { get; } = 'r';
     public override ConsoleColor ElementColor { get; } = ConsoleColor.DarkGreen;
     
@@ -16,7 +17,7 @@ public class Rat(int posY, int posX) : Enemy(posY, posX)
         else if (direction == 3) newX++;
         
         // Check for collision before moving
-        if (!CheckCollision(newX, newY, elements)) {
+        if (!IsColliding(newX, newY, elements)) {
             this.PosX = newX;
             this.PosY = newY;
         }
