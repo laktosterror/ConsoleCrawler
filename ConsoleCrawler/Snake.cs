@@ -7,10 +7,7 @@ public class Snake(int posY, int posX) : Enemy(posY, posX)
     public override ConsoleColor ElementColor { get; } = ConsoleColor.Magenta;
     
     public override void Move(Player player, List<LevelElement> elements) {
-        bool isCloseInX = (this.PosX - player.PosX <= 1 && this.PosX - player.PosX >= -1);
-        bool isCloseInY = (this.PosY - player.PosY <= 1 && this.PosY - player.PosY >= -1);
-        
-        if (isCloseInX && isCloseInY) {
+        if (this.DistanceTo(player) <= 1.0) {
             int newX = this.PosX, newY = this.PosY;
             
             if (this.PosX < player.PosX) newX--;
