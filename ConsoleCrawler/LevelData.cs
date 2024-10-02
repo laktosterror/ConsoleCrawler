@@ -25,6 +25,7 @@ public class LevelData
                     {
                         case '@':
                             player = new Player(row, column);
+                            elements.Add(player); // add ref type player to list
                             break;
                         case 'r':
                             elements.Add(new Rat(row, column));
