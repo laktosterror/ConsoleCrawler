@@ -6,7 +6,7 @@ public class LevelData
     {
         Load(filePath);
     }
-    public List<LevelElement> elements = [];
+    public readonly List<LevelElement> Elements = [];
 
     public Player? Player = null;
     
@@ -24,17 +24,17 @@ public class LevelData
                     switch (character)
                     {
                         case '@':
-                            player = new Player(row, column);
-                            elements.Add(player); // add ref type player to list
+                            Player = new Player(row, column);
+                            Elements.Add(Player); // add ref type player to list
                             break;
                         case 'r':
-                            elements.Add(new Rat(row, column));
+                            Elements.Add(new Rat(row, column));
                             break;
                         case 's':
-                            elements.Add(new Snake(row, column));
+                            Elements.Add(new Snake(row, column));
                             break;
                         case '#':
-                            elements.Add(new Wall(row, column));
+                            Elements.Add(new Wall(row, column));
                             break;
                         default:
                             break;
@@ -48,18 +48,25 @@ public class LevelData
 
     public void DrawAll()
     {
-        foreach (var element in elements)
+        foreach (var element in Elements)
         {
             element.Draw();
         }
-        player.Draw();
+        Player.Draw();
     }
 
     public void MoveEnemies()
     {
-        foreach (var element in elements.OfType<Enemy>())
+        for (int i = 0; i < Elements.Count; i++)
         {
-            element.Move(player, elements);
+            if (Elements[i] is Snake snake && snake.HealthPoints <= 0)
+            {
+                Elements.RemoveAt(i);
+            }
+        }
+        foreach (var element in Elements.OfType<Enemy>())
+        {
+            element.Update(Player, Elements);
         }
     }
 }
