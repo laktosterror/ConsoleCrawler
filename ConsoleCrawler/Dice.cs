@@ -16,4 +16,9 @@ public class Dice(int numberOfDice, int sidesPerDice, int modifier)
     }
     return roll + Modifier;
   }
+
+  public override string ToString()
+  {
+    return $"{NumberOfDice}d{SidesPerDice}+{Modifier}";
+  }
 }
