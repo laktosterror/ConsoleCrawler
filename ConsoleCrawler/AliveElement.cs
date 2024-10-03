@@ -21,4 +21,10 @@ public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX
         int deltaY = this.PosY - other.PosY;
         return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
     }
+    public void MoveTo(int moveToX, int moveToY)
+    {
+        this.PosX = moveToX;
+        this.PosY = moveToY;
+    }
+    
 }
