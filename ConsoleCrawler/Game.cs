@@ -20,18 +20,18 @@ class Game
             switch (key)
             {
                 case ConsoleKey.UpArrow:
-                    levelData.player.Move(0, -1, levelData.elements);
+                    levelData.Player?.Update(0, -1, levelData.Elements);
                     break;
                 case ConsoleKey.DownArrow:
-                    levelData.player.Move(0, 1, levelData.elements);
+                    levelData.Player?.Update(0, 1, levelData.Elements);
 
                     break;
                 case ConsoleKey.LeftArrow:
-                    levelData.player.Move(-1, 0, levelData.elements);
+                    levelData.Player?.Update(-1, 0, levelData.Elements);
 
                     break;
                 case ConsoleKey.RightArrow:
-                    levelData.player.Move(1, 0, levelData.elements);
+                    levelData.Player?.Update(1, 0, levelData.Elements);
 
                     break;
                 default:
