@@ -2,6 +2,8 @@
 
 public class Player(int posY, int posX) : AliveElement(posY, posX)
 {
+    public override Dice Dice { get; set; } = new(6, 6, 2);
+    
     public override float HealthPoints { get; set; } = 120;
     public override char ElementType { get; } = '@';
     public override ConsoleColor ElementColor { get; } = ConsoleColor.Yellow;

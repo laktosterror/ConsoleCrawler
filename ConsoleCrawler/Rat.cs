@@ -2,7 +2,8 @@
 
 public class Rat(int posY, int posX) : Enemy(posY, posX)
 {
-    public override float HealthPoints { get; set; } = 80;
+    public override Dice Dice { get; set; } = new(3, 6, 2);
+    public override float HealthPoints { get; set; } = 15;
     public override char ElementType { get; } = 'r';
     public override ConsoleColor ElementColor { get; } = ConsoleColor.DarkGreen;
     

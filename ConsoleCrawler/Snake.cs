@@ -2,6 +2,7 @@
 
 public class Snake(int posY, int posX) : Enemy(posY, posX)
 {
+    public override Dice Dice { get; set; } = new(3, 6, 2);
     public override float HealthPoints { get; set; } = 100;
     public override char ElementType { get; } = 's';
     public override ConsoleColor ElementColor { get; } = ConsoleColor.Magenta;
