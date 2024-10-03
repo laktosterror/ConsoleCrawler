@@ -8,13 +8,13 @@ public class LevelData
     }
     public List<LevelElement> elements = [];
 
-    public Player player = null;
+    public Player? Player = null;
     
     private void Load(string filePath)
     {
         using (var streamReader = new StreamReader(filePath))
         {
-            string line;
+            string? line;
             int row = 0;
             while ((line = streamReader.ReadLine()) != null)
             {
