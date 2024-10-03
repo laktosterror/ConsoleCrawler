@@ -69,6 +69,7 @@ public class LevelData
             element.Update(Player, Elements);
         }
     }
+
     public void CleanupDeadEnemies()
     {
 
@@ -78,6 +79,14 @@ public class LevelData
             {
                 Elements.RemoveAt(i);
             }
+        }
+    }
+
+    public void ResetCounterAttackFlags()
+    {
+        foreach (var element in Elements.OfType<AliveElement>())
+        {
+            element.HasCounterAttacked = false;
         }
     }
 }
