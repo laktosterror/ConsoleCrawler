@@ -57,13 +57,6 @@ public class LevelData
 
     public void MoveEnemies()
     {
-        for (int i = 0; i < Elements.Count; i++)
-        {
-            if (Elements[i] is Snake snake && snake.HealthPoints <= 0)
-            {
-                Elements.RemoveAt(i);
-            }
-        }
         foreach (var element in Elements.OfType<Enemy>())
         {
             element.Update(Player, Elements);
