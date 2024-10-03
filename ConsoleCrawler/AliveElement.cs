@@ -10,10 +10,10 @@ public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX
     public LevelElement? IsCollidingWith(int newX, int newY, List<LevelElement> elements) {
         foreach (LevelElement element in elements) {
             if (this != element && newX == element.PosX && newY == element.PosY) {
-                return true;
+                return element;
             }
         }
-        return false;
+        return null;
     }
     
     public double DistanceTo(AliveElement other)
