@@ -1,7 +1,9 @@
 ﻿namespace ConsoleCrawler;
 
-public class Player(int posY, int posX) : AliveElement(posY, posX)
+public class Player(int posY, int posX, string name) : AliveElement(posY, posX)
 {
+    
+    public string Name { get; } = name;
     public override Dice Dice { get; set; } = new(6, 6, 2);
     
     public override float HealthPoints { get; set; } = 120;
