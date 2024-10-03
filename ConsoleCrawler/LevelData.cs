@@ -69,4 +69,15 @@ public class LevelData
             element.Update(Player, Elements);
         }
     }
+    public void CleanupDeadEnemies()
+    {
+
+        for (int i = Elements.Count -1; i >= 0; i--)
+        {
+            if (Elements[i] is AliveElement aliveElement && aliveElement.HealthPoints <= 0)
+            {
+                Elements.RemoveAt(i);
+            }
+        }
+    }
 }

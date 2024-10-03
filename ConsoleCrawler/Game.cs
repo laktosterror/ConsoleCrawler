@@ -38,6 +38,8 @@ class Game
                     break;
             }
             levelData.MoveEnemies();
+            levelData.CleanupDeadEnemies();
+            levelData.ResetCounterAttackFlags();
         }
     }
 }
