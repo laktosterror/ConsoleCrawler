@@ -14,6 +14,7 @@ public class LevelData
     {
         using (var streamReader = new StreamReader(filePath))
         {
+            int consoleOffset = 3;
             string? line;
             int row = 0;
             while ((line = streamReader.ReadLine()) != null)
@@ -24,17 +25,17 @@ public class LevelData
                     switch (character)
                     {
                         case '@':
-                            Player = new Player(row, column);
+                            Player = new Player(row + consoleOffset, column);
                             Elements.Add(Player); // add ref type player to list
                             break;
                         case 'r':
-                            Elements.Add(new Rat(row, column));
+                            Elements.Add(new Rat(row + consoleOffset, column));
                             break;
                         case 's':
-                            Elements.Add(new Snake(row, column));
+                            Elements.Add(new Snake(row + consoleOffset, column));
                             break;
                         case '#':
-                            Elements.Add(new Wall(row, column));
+                            Elements.Add(new Wall(row + consoleOffset, column));
                             break;
                         default:
                             break;

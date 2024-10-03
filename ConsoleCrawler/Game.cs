@@ -15,6 +15,9 @@ class Game
         while (true)
         {
             Console.Clear();
+            Console.WriteLine("Welcome to Crawler!");
+            Console.WriteLine("Press any key to continue...");
+            
             levelData.DrawAll();
             var key = Console.ReadKey().Key;
             switch (key)
