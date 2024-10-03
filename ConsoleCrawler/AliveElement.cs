@@ -46,6 +46,27 @@ public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX
         }
     }
 
+    public void Act(int newX, int newY, List<LevelElement> elements)
+    {
+        // Check for collision before moving
+        var collidedElement = IsCollidingWith(newX, newY, elements);
+        switch (collidedElement)
+        {
+            case AliveElement aliveElement:
+                if (this is Player && aliveElement is Enemy || this is Enemy && aliveElement is Player)
+                {
+                    Attack(aliveElement);
+                    aliveElement.CounterAttack(this);
+                }
+                break;
+            case Wall:
+                break;
+            default:
+                MoveTo(newX, newY);
+                break;
+        }
+    }
+    
     public void MoveTo(int moveToX, int moveToY)
     {
         this.PosX = moveToX;
