@@ -2,6 +2,7 @@
 
 public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX)
 {
+    public bool HasCounterAttacked { get; set; }
     public abstract float HealthPoints { get; set; }
     public abstract Dice Dice { get; set; }
     public abstract void Update(Player player, List<LevelElement> elements);
@@ -21,6 +22,30 @@ public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX
         int deltaY = this.PosY - other.PosY;
         return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
     }
+    
+    public void Attack(AliveElement target)
+    {
+        var attackDamage = Dice.Throw(); 
+        target.TakeDamage(attackDamage);
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        var defenceDices = Dice.Throw();
+        var totalDamage = damage - defenceDices;
+        
+        this.HealthPoints -= totalDamage <= 0 ? 0 : totalDamage;
+    }
+
+    public void CounterAttack(AliveElement attacker)
+    {
+        if (!HasCounterAttacked)
+        {
+            HasCounterAttacked = true;
+            Attack(attacker);
+        }
+    }
+
     public void MoveTo(int moveToX, int moveToY)
     {
         this.PosX = moveToX;
