@@ -43,7 +43,7 @@ public class LevelData
         }
     }
 
-    public void DrawAll()
+    public void DrawAllElements()
     {
         foreach (var element in Elements)
         {
