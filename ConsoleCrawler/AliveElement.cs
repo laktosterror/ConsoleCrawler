@@ -2,7 +2,6 @@
 
 public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX)
 {
-    public bool HasCounterAttacked { get; set; }
     public abstract float HealthPoints { get; set; }
     public abstract Dice Dice { get; set; }
     public abstract void Update(Player player, List<LevelElement> elements);
