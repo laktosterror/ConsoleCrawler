@@ -2,7 +2,7 @@
 
 public static class FightManager
 {
-    public static bool FightResultsExist { get; set; } = false;
+    public static bool FightResultsExist { get; set; }
     public static FightResult LastResult = new FightResult();
     
     public static void InitiateFightBetween(AliveElement attacker, AliveElement defender)
