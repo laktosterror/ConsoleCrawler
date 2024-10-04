@@ -14,14 +14,16 @@ public static class FightManager
         LastResult.AttackerType = attacker.GetType().Name;
         LastResult.AttackerDamage = attacker.GetAttackPoints();
         LastResult.DefenderDefence = defender.GetDefensePoints();
-        defender.TakeDamage(LastResult.AttackerDamage, LastResult.DefenderDefence);
+        
+        defender.TakeDamage(LastResult.AttackerDamage - LastResult.DefenderDefence);
 
         LastResult.DefenderAtkDice = defender.AtkDice.ToString();
         LastResult.DefenderDefDice = defender.DefDice.ToString();
         LastResult.DefenderType = defender.GetType().Name;
         LastResult.DefenderDamage = defender.GetAttackPoints();
         LastResult.AttackerDefence = attacker.GetDefensePoints();
-        attacker.TakeDamage(LastResult.DefenderDamage, LastResult.AttackerDefence);
+        
+        attacker.TakeDamage(LastResult.DefenderDamage - LastResult.AttackerDefence);
         
         FightResultsExist = true;
     }

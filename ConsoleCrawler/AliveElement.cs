@@ -35,12 +35,9 @@ public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX
         return defensePoints;
     }
     
-    public void TakeDamage(int attackPoints, int defencePoints)
+    public void TakeDamage(int damageToDeal)
     {
-        var defenceDices = Dice.Throw();
-        var totalDamage = damage - defenceDices;
-        
-        this.HealthPoints -= totalDamage <= 0 ? 0 : totalDamage;
+        this.HealthPoints -= damageToDeal <= 0 ? 0 : damageToDeal;
     }
 
     public void HandleMovementAndCollision(int newX, int newY, List<LevelElement> elements)
@@ -68,5 +65,4 @@ public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX
         this.PosX = moveToX;
         this.PosY = moveToY;
     }
-    
 }
