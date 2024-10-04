@@ -43,6 +43,7 @@ class Game
                 default:
                     break;
             }
+            levelData.CleanupDeadEnemies();
             levelData.MoveEnemies();
             levelData.CleanupDeadEnemies();
 
