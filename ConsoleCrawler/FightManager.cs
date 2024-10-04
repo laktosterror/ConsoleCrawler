@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace ConsoleCrawler;
+﻿namespace ConsoleCrawler;
 
 public static class FightManager
 {
