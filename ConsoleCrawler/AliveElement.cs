@@ -52,8 +52,7 @@ public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX
             case AliveElement aliveElement:
                 if (this is Player && aliveElement is Enemy || this is Enemy && aliveElement is Player)
                 {
-                    Attack(aliveElement);
-                    aliveElement.CounterAttack(this);
+                    FightManager.InitiateFightBetween(this, aliveElement);
                 }
                 break;
             case Wall:
