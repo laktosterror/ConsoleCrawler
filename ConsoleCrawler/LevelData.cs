@@ -2,15 +2,11 @@
 
 public class LevelData
 {
-    public LevelData(string filePath)
-    {
-        Load(filePath);
-    }
     public readonly List<LevelElement> Elements = [];
 
     public Player? Player = null;
     
-    private void Load(string filePath)
+    public void Load(string filePath)
     {
         using (var streamReader = new StreamReader(filePath))
         {
