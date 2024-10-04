@@ -8,38 +8,36 @@ public class LevelData
     
     public void Load(string filePath)
     {
-        using (var streamReader = new StreamReader(filePath))
+        using var streamReader = new StreamReader(filePath);
+        int consoleOffset = 3;
+        string? line;
+        int row = 0;
+        while ((line = streamReader.ReadLine()) != null)
         {
-            int consoleOffset = 3;
-            string? line;
-            int row = 0;
-            while ((line = streamReader.ReadLine()) != null)
+            var column = 0;
+            foreach (var character in line)
             {
-                var column = 0;
-                foreach (var character in line)
+                switch (character)
                 {
-                    switch (character)
-                    {
-                        case '@':
-                            Player = new Player(row + consoleOffset, column);
-                            Elements.Add(Player); // add ref type player to list
-                            break;
-                        case 'r':
-                            Elements.Add(new Rat(row + consoleOffset, column));
-                            break;
-                        case 's':
-                            Elements.Add(new Snake(row + consoleOffset, column));
-                            break;
-                        case '#':
-                            Elements.Add(new Wall(row + consoleOffset, column));
-                            break;
-                        default:
-                            break;
-                    }
-                    column++;
+                    case '@':
+                        Player = new Player(row + consoleOffset, column);
+                        Elements.Add(Player); // add ref type player to list
+                        break;
+                    case 'r':
+                        Elements.Add(new Rat(row + consoleOffset, column));
+                        break;
+                    case 's':
+                        Elements.Add(new Snake(row + consoleOffset, column));
+                        break;
+                    case '#':
+                        Elements.Add(new Wall(row + consoleOffset, column));
+                        break;
+                    default:
+                        break;
                 }
-                row++;
+                column++;
             }
+            row++;
         }
     }
 
