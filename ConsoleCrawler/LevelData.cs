@@ -4,7 +4,7 @@ public class LevelData
 {
     public readonly List<LevelElement> Elements = [];
 
-    public Player? Player = null;
+    public Player? Player;
     
     public void Load(string filePath)
     {
@@ -12,6 +12,7 @@ public class LevelData
         int consoleOffset = 3;
         string? line;
         int row = 0;
+        
         while ((line = streamReader.ReadLine()) != null)
         {
             var column = 0;
@@ -23,16 +24,17 @@ public class LevelData
                         Player = new Player(row + consoleOffset, column);
                         Elements.Add(Player); // add ref type player to list
                         break;
+                    
                     case 'r':
                         Elements.Add(new Rat(row + consoleOffset, column));
                         break;
+                    
                     case 's':
                         Elements.Add(new Snake(row + consoleOffset, column));
                         break;
+                    
                     case '#':
                         Elements.Add(new Wall(row + consoleOffset, column));
-                        break;
-                    default:
                         break;
                 }
                 column++;
