@@ -22,4 +22,11 @@ public class Player(int posY, int posX) : AliveElement(posY, posX)
         
         HandleMovementAndCollision(newX, newY, elements);
     }
+
+    public override void Draw()
+    {
+        Console.SetCursorPosition(PosX, PosY);
+        Console.ForegroundColor = ElementColor;
+        Console.WriteLine(ElementType.ToString());
+    }
 }
