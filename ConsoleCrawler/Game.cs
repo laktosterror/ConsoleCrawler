@@ -16,7 +16,7 @@ class Game
 
     static void BeginGameLoop(LevelData levelData)
     {
-        while (true)
+        while (levelData.Player.HealthPoints >= 0)
         {
             Console.Clear();
             levelData.DrawPlayerStatus();
@@ -48,5 +48,7 @@ class Game
 
             Turns++;
         }
+        Console.Clear();
+        Console.WriteLine("Game Over");
     }
 }
