@@ -3,7 +3,8 @@
 public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX)
 {
     public abstract float HealthPoints { get; set; }
-    public abstract Dice Dice { get; set; }
+    public abstract Dice AtkDice { get; set; }
+    public abstract Dice DefDice { get; set; }
     public abstract void Update(Player player, List<LevelElement> elements);
 
     public LevelElement? IsCollidingWith(int newX, int newY, List<LevelElement> elements) {
