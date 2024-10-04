@@ -23,13 +23,19 @@ public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX
         return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
     }
     
-    public void Attack(AliveElement target)
+    public int GetAttackPoints()
     {
-        var attackDamage = Dice.Throw(); 
-        target.TakeDamage(attackDamage);
+        var attackPoints = AtkDice.Throw();
+        return attackPoints;
+    }
+
+    public int GetDefensePoints()
+    {
+        var defensePoints = DefDice.Throw();
+        return defensePoints;
     }
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(int attackPoints, int defencePoints)
     {
         var defenceDices = Dice.Throw();
         var totalDamage = damage - defenceDices;
