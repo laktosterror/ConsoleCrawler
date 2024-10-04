@@ -1,12 +1,13 @@
 ﻿namespace ConsoleCrawler;
 
-public class Player(int posY, int posX, string name) : AliveElement(posY, posX)
+public class Player(int posY, int posX) : AliveElement(posY, posX)
 {
     
-    public string Name { get; } = name;
-    public override Dice Dice { get; set; } = new(6, 6, 2);
+    public string Name { get; set; } = String.Empty;
+    public override Dice AtkDice { get; set; } = new(2, 6, 2);
+    public override Dice DefDice { get; set; } = new(2, 6, 0);
     
-    public override float HealthPoints { get; set; } = 120;
+    public override float HealthPoints { get; set; } = 100;
     public override char ElementType { get; } = '@';
     public override ConsoleColor ElementColor { get; } = ConsoleColor.Yellow;
 
