@@ -22,7 +22,7 @@ public class LevelData
                 {
                     case '@':
                         Player = new Player(row + consoleOffset, column);
-                        Elements.Add(Player); // add ref type player to list
+                        Elements.Add(Player);
                         break;
                     
                     case 'r':
@@ -49,7 +49,6 @@ public class LevelData
         {
             element.Draw();
         }
-        //Player.Draw();
     }
 
     public void MoveEnemies()
