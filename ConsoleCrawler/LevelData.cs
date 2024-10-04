@@ -51,7 +51,16 @@ public class LevelData
         }
     }
 
-    public void MoveEnemies()
+    public void CheckVisibilityAndDiscoveries()
+    {
+        foreach (var element in Elements)
+        {
+            element.SetIsDiscoveredIfCloseTo(Player);
+            
+        }
+    }
+
+    public void MoveAllEnemies()
     {
         foreach (var element in Elements.OfType<Enemy>())
         {

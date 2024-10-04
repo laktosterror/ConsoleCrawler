@@ -21,6 +21,7 @@ class Game
             Console.Clear();
             levelData.DrawPlayerStatus();
             FightManager.DrawLastFightResult();
+            levelData.CheckVisibilityAndDiscoveries();
             levelData.DrawAllElements();
             var key = Console.ReadKey().Key;
             switch (key)
@@ -42,7 +43,7 @@ class Game
                     break;
             }
             levelData.CleanupDeadEnemies();
-            levelData.MoveEnemies();
+            levelData.MoveAllEnemies();
             levelData.CleanupDeadEnemies();
 
             Turns++;

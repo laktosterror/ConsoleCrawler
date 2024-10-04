@@ -4,15 +4,31 @@ namespace ConsoleCrawler;
 
 public abstract class LevelElement(int posY, int posX)
 {
+    public bool IsDiscovered { get; set; }
+    public bool IsVisible { get; set; }
     public int PosY { get; set; } = posY;
     public int PosX { get; set; } = posX;
     public abstract char ElementType { get; }
     public abstract ConsoleColor ElementColor { get; }
-
-    public void Draw()
+    public abstract void Draw();
+    
+    public double DistanceTo(AliveElement other)
     {
-        Console.SetCursorPosition(PosX, PosY);
-        Console.ForegroundColor = ElementColor;
-        Console.WriteLine(ElementType.ToString());
+        int deltaX = this.PosX - other.PosX;
+        int deltaY = this.PosY - other.PosY;
+        return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
+    }
+    
+    public void SetIsDiscoveredIfCloseTo(Player player)
+    {
+        if (this.DistanceTo(player) <= 5.0)
+        {
+            IsDiscovered = true;
+            IsVisible = true;
+        }
+        else
+        {
+            IsVisible = false;
+        }
     }
 }
