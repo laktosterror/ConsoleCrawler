@@ -2,6 +2,7 @@
 
 class Game
 {
+    public static int Turns = 0;
     static void Main(string[] args)
     {
         Console.CursorVisible = false;
