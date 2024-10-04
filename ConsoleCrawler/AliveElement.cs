@@ -37,16 +37,7 @@ public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX
         this.HealthPoints -= totalDamage <= 0 ? 0 : totalDamage;
     }
 
-    public void CounterAttack(AliveElement attacker)
-    {
-        if (!HasCounterAttacked)
-        {
-            HasCounterAttacked = true;
-            Attack(attacker);
-        }
-    }
-
-    public void Act(int newX, int newY, List<LevelElement> elements)
+    public void HandleMovementAndCollision(int newX, int newY, List<LevelElement> elements)
     {
         // Check for collision before moving
         var collidedElement = IsCollidingWith(newX, newY, elements);

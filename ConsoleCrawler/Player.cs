@@ -19,6 +19,6 @@ public class Player(int posY, int posX, string name) : AliveElement(posY, posX)
         int newX = this.PosX + deltaX;
         int newY = this.PosY + deltaY;
         
-        Act(newX, newY, elements);
+        HandleMovementAndCollision(newX, newY, elements);
     }
 }
