@@ -5,6 +5,11 @@ class Game
     public static int Turns = 0;
     static void Main(string[] args)
     {
+        var levelData = new LevelData();
+        levelData.Load(@"C:\Users\TEST\RiderProjects\ConsoleCrawler\ConsoleCrawler\Levels\Level1.txt");
+        Console.Write("Enter your name: ");
+        levelData.Player.Name = Console.ReadLine();
+        
         Console.CursorVisible = false;
         
         LevelData levelData = new LevelData(@"C:\Users\TEST\RiderProjects\ConsoleCrawler\ConsoleCrawler\Levels\Level1.txt");
