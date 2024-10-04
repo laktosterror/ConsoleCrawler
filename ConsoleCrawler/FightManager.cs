@@ -3,25 +3,25 @@
 public static class FightManager
 {
     public static bool FightResultsExist { get; set; }
-    public static FightResult LastResult = new FightResult();
+    public static FightResult Result = new FightResult();
     
     public static void InitiateFightBetween(AliveElement attacker, AliveElement defender)
     {
-        LastResult.AttackerAtkDice = attacker.AtkDice.ToString();
-        LastResult.AttackerDefDice = attacker.DefDice.ToString();
-        LastResult.AttackerType = attacker.GetType().Name;
-        LastResult.AttackerDamage = attacker.GetAttackPoints();
-        LastResult.DefenderDefence = defender.GetDefensePoints();
+        Result.AttackerAtkDice = attacker.AtkDice.ToString();
+        Result.AttackerDefDice = attacker.DefDice.ToString();
+        Result.AttackerType = attacker.GetType().Name;
+        Result.AttackerDamage = attacker.GetAttackPoints();
+        Result.DefenderDefence = defender.GetDefensePoints();
         
-        defender.TakeDamage(LastResult.AttackerDamage - LastResult.DefenderDefence);
+        defender.TakeDamage(Result.AttackerDamage - Result.DefenderDefence);
 
-        LastResult.DefenderAtkDice = defender.AtkDice.ToString();
-        LastResult.DefenderDefDice = defender.DefDice.ToString();
-        LastResult.DefenderType = defender.GetType().Name;
-        LastResult.DefenderDamage = defender.GetAttackPoints();
-        LastResult.AttackerDefence = attacker.GetDefensePoints();
+        Result.DefenderAtkDice = defender.AtkDice.ToString();
+        Result.DefenderDefDice = defender.DefDice.ToString();
+        Result.DefenderType = defender.GetType().Name;
+        Result.DefenderDamage = defender.GetAttackPoints();
+        Result.AttackerDefence = attacker.GetDefensePoints();
         
-        attacker.TakeDamage(LastResult.DefenderDamage - LastResult.AttackerDefence);
+        attacker.TakeDamage(Result.DefenderDamage - Result.AttackerDefence);
         
         FightResultsExist = true;
     }
@@ -31,10 +31,10 @@ public static class FightManager
         if (FightResultsExist)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"{LastResult.AttackerType} (ATK: {LastResult.AttackerAtkDice} => {LastResult.AttackerDamage}) attacked the {LastResult.DefenderType} (DEF: {LastResult.DefenderDefDice} => {LastResult.DefenderDefence})");
+            Console.WriteLine($"{Result.AttackerType} (ATK: {Result.AttackerAtkDice} => {Result.AttackerDamage}) attacked the {Result.DefenderType} (DEF: {Result.DefenderDefDice} => {Result.DefenderDefence})");
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"{LastResult.DefenderType} (ATK: {LastResult.DefenderAtkDice} => {LastResult.DefenderDamage}) counterattacked the {LastResult.AttackerType} (DEF: {LastResult.AttackerDefDice} => {LastResult.AttackerDefence})");
+            Console.WriteLine($"{Result.DefenderType} (ATK: {Result.DefenderAtkDice} => {Result.DefenderDamage}) counterattacked the {Result.AttackerType} (DEF: {Result.AttackerDefDice} => {Result.AttackerDefence})");
             
             FightResultsExist = false;
         }
