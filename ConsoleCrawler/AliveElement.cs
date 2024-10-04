@@ -16,13 +16,6 @@ public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX
         return null;
     }
     
-    public double DistanceTo(AliveElement other)
-    {
-        int deltaX = this.PosX - other.PosX;
-        int deltaY = this.PosY - other.PosY;
-        return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
-    }
-    
     public int GetAttackPoints()
     {
         var attackPoints = AtkDice.Throw();
