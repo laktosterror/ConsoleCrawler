@@ -2,8 +2,9 @@
 
 public class Snake(int posY, int posX) : Enemy(posY, posX)
 {
-    public override Dice Dice { get; set; } = new(3, 6, 2);
-    public override float HealthPoints { get; set; } = 100;
+    public override Dice AtkDice { get; set; } = new(3, 4, 2);
+    public override Dice DefDice { get; set; } = new(1, 8, 5);
+    public override float HealthPoints { get; set; } = 90;
     public override char ElementType { get; } = 's';
     public override ConsoleColor ElementColor { get; } = ConsoleColor.Magenta;
     
@@ -16,7 +17,7 @@ public class Snake(int posY, int posX) : Enemy(posY, posX)
             else if (this.PosY < player.PosY) newY--;
             else if (this.PosY > player.PosY) newY++;
             
-            Act(newX, newY, elements);
+            HandleMovementAndCollision(newX, newY, elements);
         }
     }
 }
