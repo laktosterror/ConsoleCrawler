@@ -71,12 +71,10 @@ public class LevelData
             }
         }
     }
-
-    public void ResetCounterAttackFlags()
+    
+    public void DrawPlayerStatus()
     {
-        foreach (var element in Elements.OfType<AliveElement>())
-        {
-            element.HasCounterAttacked = false;
-        }
+        Console.ForegroundColor = ConsoleColor.Gray;
+        Console.WriteLine($"Name: {Player.Name} - Health: {Player.HealthPoints}/100 - Turn: {Game.Turns}");
     }
 }
