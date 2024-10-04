@@ -49,7 +49,7 @@ public class LevelData
         {
             element.Draw();
         }
-        Player.Draw();
+        //Player.Draw();
     }
 
     public void MoveEnemies()
