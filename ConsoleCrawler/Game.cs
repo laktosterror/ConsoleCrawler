@@ -11,8 +11,6 @@ class Game
         levelData.Player.Name = Console.ReadLine();
         
         Console.CursorVisible = false;
-        
-        LevelData levelData = new LevelData(@"C:\Users\TEST\RiderProjects\ConsoleCrawler\ConsoleCrawler\Levels\Level1.txt");
         BeginGameLoop(levelData);
     }
 
@@ -21,10 +19,9 @@ class Game
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("Welcome to Crawler!");
-            Console.WriteLine("Press any key to continue...");
-            
-            levelData.DrawAll();
+            levelData.DrawPlayerStatus();
+            FightManager.DrawLastFightResult();
+            levelData.DrawAllElements();
             var key = Console.ReadKey().Key;
             switch (key)
             {
@@ -48,7 +45,8 @@ class Game
             }
             levelData.MoveEnemies();
             levelData.CleanupDeadEnemies();
-            levelData.ResetCounterAttackFlags();
+
+            Turns++;
         }
     }
 }
