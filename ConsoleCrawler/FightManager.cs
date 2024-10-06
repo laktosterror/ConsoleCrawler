@@ -20,8 +20,11 @@ public static class FightManager
         Result.DefenderType = defender.GetType().Name;
         Result.DefenderDamage = defender.GetAttackPoints();
         Result.AttackerDefence = attacker.GetDefensePoints();
-        
-        attacker.TakeDamage(Result.DefenderDamage - Result.AttackerDefence);
+
+        if (defender.HealthPoints > 0)
+        {
+            attacker.TakeDamage(Result.DefenderDamage - Result.AttackerDefence);
+        }
         
         FightResultsExist = true;
     }
