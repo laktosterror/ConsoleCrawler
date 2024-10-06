@@ -19,7 +19,7 @@ public abstract class LevelElement(int posY, int posX)
         return Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
     }
     
-    public void DiscoverIfCloseTo(Player player)
+    public void SetIsDiscoveredIfCloseTo(Player player)
     {
         if (this.DistanceTo(player) <= 5.0)
         {
@@ -27,7 +27,7 @@ public abstract class LevelElement(int posY, int posX)
         }
     }
 
-    public void SetVisibleIfCloseTo(Player player)
+    public void SetIsVisibleIfCloseTo(Player player)
     {
         if (this.DistanceTo(player) <= 5.0)
         {

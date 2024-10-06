@@ -55,7 +55,7 @@ public class LevelData
     {
         foreach (var element in Elements)
         {
-            element.DiscoverIfCloseTo(Player);
+            element.SetIsDiscoveredIfCloseTo(Player);
             
         }
     }
@@ -64,7 +64,7 @@ public class LevelData
     {
         foreach (var element in Elements)
         {
-            element.SetVisibleIfCloseTo(Player);
+            element.SetIsVisibleIfCloseTo(Player);
         }
     }
 
