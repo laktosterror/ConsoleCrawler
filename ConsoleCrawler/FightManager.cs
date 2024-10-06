@@ -30,11 +30,19 @@ public static class FightManager
     {
         if (FightResultsExist)
         {
+            var attackMessage =
+                $"{Result.AttackerType} (ATK: {Result.AttackerAtkDice} => {Result.AttackerDamage}) attacked the " +
+                $"{Result.DefenderType} (DEF: {Result.DefenderDefDice} => {Result.DefenderDefence})";
+            
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"{Result.AttackerType} (ATK: {Result.AttackerAtkDice} => {Result.AttackerDamage}) attacked the {Result.DefenderType} (DEF: {Result.DefenderDefDice} => {Result.DefenderDefence})");
+            Console.WriteLine(attackMessage);
 
+            var counterAttackMessage =
+                $"{Result.DefenderType} (ATK: {Result.DefenderAtkDice} => {Result.DefenderDamage}) counterattacked the " +
+                $"{Result.AttackerType} (DEF: {Result.AttackerDefDice} => {Result.AttackerDefence})";
+            
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"{Result.DefenderType} (ATK: {Result.DefenderAtkDice} => {Result.DefenderDamage}) counterattacked the {Result.AttackerType} (DEF: {Result.AttackerDefDice} => {Result.AttackerDefence})");
+            Console.WriteLine(counterAttackMessage);
             
             FightResultsExist = false;
         }
