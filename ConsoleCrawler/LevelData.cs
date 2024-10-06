@@ -51,12 +51,20 @@ public class LevelData
         }
     }
 
-    public void CheckVisibilityAndDiscoveries()
+    public void UpdateDiscoveries()
     {
         foreach (var element in Elements)
         {
-            element.SetIsDiscoveredIfCloseTo(Player);
+            element.DiscoverIfCloseTo(Player);
             
+        }
+    }
+
+    public void UpdateVisibility()
+    {
+        foreach (var element in Elements)
+        {
+            element.SetVisibleIfCloseTo(Player);
         }
     }
 
@@ -68,7 +76,7 @@ public class LevelData
         }
     }
 
-    public void CleanupDeadEnemies()
+    public void RemoveDeadEnemies()
     {
 
         for (int i = Elements.Count -1; i >= 0; i--)

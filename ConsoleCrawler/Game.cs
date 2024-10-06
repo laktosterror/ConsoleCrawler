@@ -18,10 +18,11 @@ class Game
     {
         while (levelData.Player.HealthPoints >= 0)
         {
+            levelData.UpdateDiscoveries();
+            levelData.UpdateVisibility();
             Console.Clear();
             levelData.DrawPlayerStatus();
             FightManager.DrawLastFightResult();
-            levelData.CheckVisibilityAndDiscoveries();
             levelData.DrawAllElements();
             var key = Console.ReadKey().Key;
             switch (key)
@@ -42,9 +43,9 @@ class Game
                     levelData.Player?.Update(1, 0, levelData.Elements);
                     break;
             }
-            levelData.CleanupDeadEnemies();
+            levelData.RemoveDeadEnemies();
             levelData.MoveAllEnemies();
-            levelData.CleanupDeadEnemies();
+            levelData.RemoveDeadEnemies();
 
             Turns++;
         }
