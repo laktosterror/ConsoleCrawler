@@ -35,7 +35,6 @@ public abstract class AliveElement(int posY, int posX) : LevelElement(posY, posX
 
     public void HandleMovementAndCollision(int newX, int newY, List<LevelElement> elements)
     {
-        // Check for collision before moving
         var collidedElement = IsCollidingWith(newX, newY, elements);
         switch (collidedElement)
         {
