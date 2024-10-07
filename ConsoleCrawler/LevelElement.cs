@@ -10,7 +10,12 @@ public abstract class LevelElement(int posY, int posX)
     public int PosX { get; set; } = posX;
     public abstract char ElementType { get; }
     public abstract ConsoleColor ElementColor { get; }
-    public abstract void Draw();
+    public virtual void Draw()
+    {
+        Console.SetCursorPosition(PosX, PosY);
+        Console.ForegroundColor = ElementColor;
+        Console.WriteLine(ElementType.ToString());
+    }
     
     public double DistanceTo(AliveElement other)
     {
