@@ -2,7 +2,6 @@
 
 public class Player(int posY, int posX) : AliveElement(posY, posX)
 {
-    
     public string Name { get; set; } = String.Empty;
     public override Dice AtkDice { get; set; } = new(2, 6, 2);
     public override Dice DefDice { get; set; } = new(2, 6, 0);
@@ -21,12 +20,5 @@ public class Player(int posY, int posX) : AliveElement(posY, posX)
         int newY = this.PosY + deltaY;
         
         HandleMovementAndCollision(newX, newY, elements);
-    }
-
-    public override void Draw()
-    {
-        Console.SetCursorPosition(PosX, PosY);
-        Console.ForegroundColor = ElementColor;
-        Console.WriteLine(ElementType.ToString());
     }
 }
